@@ -286,7 +286,7 @@ export const store = {
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-const show497699e14d5a6deffbc53d0e3fc43154 = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const show497699e14d5a6deffbc53d0e3fc43154 = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'get',
 })
@@ -301,7 +301,7 @@ show497699e14d5a6deffbc53d0e3fc43154.definition = {
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-show497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+show497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -334,7 +334,7 @@ show497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: number | { id: numb
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-show497699e14d5a6deffbc53d0e3fc43154.get = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show497699e14d5a6deffbc53d0e3fc43154.get = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'get',
 })
@@ -344,7 +344,7 @@ show497699e14d5a6deffbc53d0e3fc43154.get = (args: { absence: number | { id: numb
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-show497699e14d5a6deffbc53d0e3fc43154.head = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show497699e14d5a6deffbc53d0e3fc43154.head = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'head',
 })
@@ -354,7 +354,7 @@ show497699e14d5a6deffbc53d0e3fc43154.head = (args: { absence: number | { id: num
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-const show497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const show497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'get',
 })
@@ -364,7 +364,7 @@ const show497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: number | { id
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-show497699e14d5a6deffbc53d0e3fc43154Form.get = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show497699e14d5a6deffbc53d0e3fc43154Form.get = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'get',
 })
@@ -374,7 +374,7 @@ show497699e14d5a6deffbc53d0e3fc43154Form.get = (args: { absence: number | { id: 
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/api/absences/{absence}'
 */
-show497699e14d5a6deffbc53d0e3fc43154Form.head = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show497699e14d5a6deffbc53d0e3fc43154Form.head = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show497699e14d5a6deffbc53d0e3fc43154.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -390,7 +390,7 @@ show497699e14d5a6deffbc53d0e3fc43154.form = show497699e14d5a6deffbc53d0e3fc43154
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-const showba8a8cdfa8c187b354661adc86f9ae9a = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const showba8a8cdfa8c187b354661adc86f9ae9a = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: showba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'get',
 })
@@ -405,7 +405,7 @@ showba8a8cdfa8c187b354661adc86f9ae9a.definition = {
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+showba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -438,7 +438,7 @@ showba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: number | { id: numb
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showba8a8cdfa8c187b354661adc86f9ae9a.get = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+showba8a8cdfa8c187b354661adc86f9ae9a.get = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: showba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'get',
 })
@@ -448,7 +448,7 @@ showba8a8cdfa8c187b354661adc86f9ae9a.get = (args: { absence: number | { id: numb
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showba8a8cdfa8c187b354661adc86f9ae9a.head = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+showba8a8cdfa8c187b354661adc86f9ae9a.head = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: showba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'head',
 })
@@ -458,7 +458,7 @@ showba8a8cdfa8c187b354661adc86f9ae9a.head = (args: { absence: number | { id: num
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-const showba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const showba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: showba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'get',
 })
@@ -468,7 +468,7 @@ const showba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: number | { id
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showba8a8cdfa8c187b354661adc86f9ae9aForm.get = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showba8a8cdfa8c187b354661adc86f9ae9aForm.get = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: showba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'get',
 })
@@ -478,7 +478,7 @@ showba8a8cdfa8c187b354661adc86f9ae9aForm.get = (args: { absence: number | { id: 
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showba8a8cdfa8c187b354661adc86f9ae9aForm.head = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showba8a8cdfa8c187b354661adc86f9ae9aForm.head = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: showba8a8cdfa8c187b354661adc86f9ae9a.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -500,7 +500,7 @@ export const show = {
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-const update497699e14d5a6deffbc53d0e3fc43154 = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const update497699e14d5a6deffbc53d0e3fc43154 = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'put',
 })
@@ -515,7 +515,7 @@ update497699e14d5a6deffbc53d0e3fc43154.definition = {
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-update497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+update497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -548,7 +548,7 @@ update497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: number | { id: nu
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-update497699e14d5a6deffbc53d0e3fc43154.put = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update497699e14d5a6deffbc53d0e3fc43154.put = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'put',
 })
@@ -558,7 +558,7 @@ update497699e14d5a6deffbc53d0e3fc43154.put = (args: { absence: number | { id: nu
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-update497699e14d5a6deffbc53d0e3fc43154.patch = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update497699e14d5a6deffbc53d0e3fc43154.patch = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'patch',
 })
@@ -568,7 +568,7 @@ update497699e14d5a6deffbc53d0e3fc43154.patch = (args: { absence: number | { id: 
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-const update497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const update497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update497699e14d5a6deffbc53d0e3fc43154.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -583,7 +583,7 @@ const update497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: number | { 
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-update497699e14d5a6deffbc53d0e3fc43154Form.put = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update497699e14d5a6deffbc53d0e3fc43154Form.put = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update497699e14d5a6deffbc53d0e3fc43154.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -598,7 +598,7 @@ update497699e14d5a6deffbc53d0e3fc43154Form.put = (args: { absence: number | { id
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/api/absences/{absence}'
 */
-update497699e14d5a6deffbc53d0e3fc43154Form.patch = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update497699e14d5a6deffbc53d0e3fc43154Form.patch = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update497699e14d5a6deffbc53d0e3fc43154.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -614,7 +614,7 @@ update497699e14d5a6deffbc53d0e3fc43154.form = update497699e14d5a6deffbc53d0e3fc4
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-const updateba8a8cdfa8c187b354661adc86f9ae9a = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const updateba8a8cdfa8c187b354661adc86f9ae9a = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: updateba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'put',
 })
@@ -629,7 +629,7 @@ updateba8a8cdfa8c187b354661adc86f9ae9a.definition = {
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+updateba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -662,7 +662,7 @@ updateba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: number | { id: nu
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateba8a8cdfa8c187b354661adc86f9ae9a.put = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+updateba8a8cdfa8c187b354661adc86f9ae9a.put = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: updateba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'put',
 })
@@ -672,7 +672,7 @@ updateba8a8cdfa8c187b354661adc86f9ae9a.put = (args: { absence: number | { id: nu
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateba8a8cdfa8c187b354661adc86f9ae9a.patch = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+updateba8a8cdfa8c187b354661adc86f9ae9a.patch = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: updateba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'patch',
 })
@@ -682,7 +682,7 @@ updateba8a8cdfa8c187b354661adc86f9ae9a.patch = (args: { absence: number | { id: 
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-const updateba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const updateba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updateba8a8cdfa8c187b354661adc86f9ae9a.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -697,7 +697,7 @@ const updateba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: number | { 
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateba8a8cdfa8c187b354661adc86f9ae9aForm.put = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateba8a8cdfa8c187b354661adc86f9ae9aForm.put = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updateba8a8cdfa8c187b354661adc86f9ae9a.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -712,7 +712,7 @@ updateba8a8cdfa8c187b354661adc86f9ae9aForm.put = (args: { absence: number | { id
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateba8a8cdfa8c187b354661adc86f9ae9aForm.patch = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateba8a8cdfa8c187b354661adc86f9ae9aForm.patch = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updateba8a8cdfa8c187b354661adc86f9ae9a.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -734,7 +734,7 @@ export const update = {
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/api/absences/{absence}'
 */
-const destroy497699e14d5a6deffbc53d0e3fc43154 = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroy497699e14d5a6deffbc53d0e3fc43154 = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'delete',
 })
@@ -749,7 +749,7 @@ destroy497699e14d5a6deffbc53d0e3fc43154.definition = {
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/api/absences/{absence}'
 */
-destroy497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+destroy497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -782,7 +782,7 @@ destroy497699e14d5a6deffbc53d0e3fc43154.url = (args: { absence: number | { id: n
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/api/absences/{absence}'
 */
-destroy497699e14d5a6deffbc53d0e3fc43154.delete = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy497699e14d5a6deffbc53d0e3fc43154.delete = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy497699e14d5a6deffbc53d0e3fc43154.url(args, options),
     method: 'delete',
 })
@@ -792,7 +792,7 @@ destroy497699e14d5a6deffbc53d0e3fc43154.delete = (args: { absence: number | { id
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/api/absences/{absence}'
 */
-const destroy497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroy497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy497699e14d5a6deffbc53d0e3fc43154.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -807,7 +807,7 @@ const destroy497699e14d5a6deffbc53d0e3fc43154Form = (args: { absence: number | {
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/api/absences/{absence}'
 */
-destroy497699e14d5a6deffbc53d0e3fc43154Form.delete = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroy497699e14d5a6deffbc53d0e3fc43154Form.delete = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy497699e14d5a6deffbc53d0e3fc43154.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -823,7 +823,7 @@ destroy497699e14d5a6deffbc53d0e3fc43154.form = destroy497699e14d5a6deffbc53d0e3f
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-const destroyba8a8cdfa8c187b354661adc86f9ae9a = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroyba8a8cdfa8c187b354661adc86f9ae9a = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroyba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'delete',
 })
@@ -838,7 +838,7 @@ destroyba8a8cdfa8c187b354661adc86f9ae9a.definition = {
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-destroyba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+destroyba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -871,7 +871,7 @@ destroyba8a8cdfa8c187b354661adc86f9ae9a.url = (args: { absence: number | { id: n
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-destroyba8a8cdfa8c187b354661adc86f9ae9a.delete = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroyba8a8cdfa8c187b354661adc86f9ae9a.delete = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroyba8a8cdfa8c187b354661adc86f9ae9a.url(args, options),
     method: 'delete',
 })
@@ -881,7 +881,7 @@ destroyba8a8cdfa8c187b354661adc86f9ae9a.delete = (args: { absence: number | { id
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-const destroyba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroyba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroyba8a8cdfa8c187b354661adc86f9ae9a.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -896,7 +896,7 @@ const destroyba8a8cdfa8c187b354661adc86f9ae9aForm = (args: { absence: number | {
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-destroyba8a8cdfa8c187b354661adc86f9ae9aForm.delete = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroyba8a8cdfa8c187b354661adc86f9ae9aForm.delete = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroyba8a8cdfa8c187b354661adc86f9ae9a.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
