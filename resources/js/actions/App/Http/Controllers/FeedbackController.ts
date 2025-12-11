@@ -286,7 +286,7 @@ export const store = {
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-const showb490fb02e884b465b2760e866ecad310 = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const showb490fb02e884b465b2760e866ecad310 = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: showb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'get',
 })
@@ -301,7 +301,7 @@ showb490fb02e884b465b2760e866ecad310.definition = {
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-showb490fb02e884b465b2760e866ecad310.url = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+showb490fb02e884b465b2760e866ecad310.url = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { feedback: args }
     }
@@ -334,7 +334,7 @@ showb490fb02e884b465b2760e866ecad310.url = (args: { feedback: string | number | 
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-showb490fb02e884b465b2760e866ecad310.get = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+showb490fb02e884b465b2760e866ecad310.get = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: showb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'get',
 })
@@ -344,7 +344,7 @@ showb490fb02e884b465b2760e866ecad310.get = (args: { feedback: string | number | 
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-showb490fb02e884b465b2760e866ecad310.head = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+showb490fb02e884b465b2760e866ecad310.head = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: showb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'head',
 })
@@ -354,7 +354,7 @@ showb490fb02e884b465b2760e866ecad310.head = (args: { feedback: string | number |
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-const showb490fb02e884b465b2760e866ecad310Form = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const showb490fb02e884b465b2760e866ecad310Form = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: showb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'get',
 })
@@ -364,7 +364,7 @@ const showb490fb02e884b465b2760e866ecad310Form = (args: { feedback: string | num
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-showb490fb02e884b465b2760e866ecad310Form.get = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showb490fb02e884b465b2760e866ecad310Form.get = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: showb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'get',
 })
@@ -374,7 +374,7 @@ showb490fb02e884b465b2760e866ecad310Form.get = (args: { feedback: string | numbe
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/api/feedback/{feedback}'
 */
-showb490fb02e884b465b2760e866ecad310Form.head = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showb490fb02e884b465b2760e866ecad310Form.head = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: showb490fb02e884b465b2760e866ecad310.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -390,7 +390,7 @@ showb490fb02e884b465b2760e866ecad310.form = showb490fb02e884b465b2760e866ecad310
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-const show20f5eac304c12f847f576957c5c9cf0c = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const show20f5eac304c12f847f576957c5c9cf0c = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'get',
 })
@@ -405,7 +405,7 @@ show20f5eac304c12f847f576957c5c9cf0c.definition = {
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-show20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { feedback: args }
     }
@@ -438,7 +438,7 @@ show20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: string | number | 
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-show20f5eac304c12f847f576957c5c9cf0c.get = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show20f5eac304c12f847f576957c5c9cf0c.get = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'get',
 })
@@ -448,7 +448,7 @@ show20f5eac304c12f847f576957c5c9cf0c.get = (args: { feedback: string | number | 
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-show20f5eac304c12f847f576957c5c9cf0c.head = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show20f5eac304c12f847f576957c5c9cf0c.head = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'head',
 })
@@ -458,7 +458,7 @@ show20f5eac304c12f847f576957c5c9cf0c.head = (args: { feedback: string | number |
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-const show20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const show20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'get',
 })
@@ -468,7 +468,7 @@ const show20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: string | num
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-show20f5eac304c12f847f576957c5c9cf0cForm.get = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show20f5eac304c12f847f576957c5c9cf0cForm.get = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'get',
 })
@@ -478,7 +478,7 @@ show20f5eac304c12f847f576957c5c9cf0cForm.get = (args: { feedback: string | numbe
 * @see app/Http/Controllers/FeedbackController.php:53
 * @route '/feedback/{feedback}'
 */
-show20f5eac304c12f847f576957c5c9cf0cForm.head = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show20f5eac304c12f847f576957c5c9cf0cForm.head = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show20f5eac304c12f847f576957c5c9cf0c.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -500,7 +500,7 @@ export const show = {
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-const updateb490fb02e884b465b2760e866ecad310 = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const updateb490fb02e884b465b2760e866ecad310 = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: updateb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'put',
 })
@@ -515,7 +515,7 @@ updateb490fb02e884b465b2760e866ecad310.definition = {
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-updateb490fb02e884b465b2760e866ecad310.url = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+updateb490fb02e884b465b2760e866ecad310.url = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { feedback: args }
     }
@@ -548,7 +548,7 @@ updateb490fb02e884b465b2760e866ecad310.url = (args: { feedback: string | number 
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-updateb490fb02e884b465b2760e866ecad310.put = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+updateb490fb02e884b465b2760e866ecad310.put = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: updateb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'put',
 })
@@ -558,7 +558,7 @@ updateb490fb02e884b465b2760e866ecad310.put = (args: { feedback: string | number 
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-updateb490fb02e884b465b2760e866ecad310.patch = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+updateb490fb02e884b465b2760e866ecad310.patch = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: updateb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'patch',
 })
@@ -568,7 +568,7 @@ updateb490fb02e884b465b2760e866ecad310.patch = (args: { feedback: string | numbe
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-const updateb490fb02e884b465b2760e866ecad310Form = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const updateb490fb02e884b465b2760e866ecad310Form = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updateb490fb02e884b465b2760e866ecad310.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -583,7 +583,7 @@ const updateb490fb02e884b465b2760e866ecad310Form = (args: { feedback: string | n
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-updateb490fb02e884b465b2760e866ecad310Form.put = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateb490fb02e884b465b2760e866ecad310Form.put = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updateb490fb02e884b465b2760e866ecad310.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -598,7 +598,7 @@ updateb490fb02e884b465b2760e866ecad310Form.put = (args: { feedback: string | num
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/api/feedback/{feedback}'
 */
-updateb490fb02e884b465b2760e866ecad310Form.patch = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateb490fb02e884b465b2760e866ecad310Form.patch = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updateb490fb02e884b465b2760e866ecad310.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -614,7 +614,7 @@ updateb490fb02e884b465b2760e866ecad310.form = updateb490fb02e884b465b2760e866eca
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-const update20f5eac304c12f847f576957c5c9cf0c = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const update20f5eac304c12f847f576957c5c9cf0c = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'put',
 })
@@ -629,7 +629,7 @@ update20f5eac304c12f847f576957c5c9cf0c.definition = {
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-update20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { feedback: args }
     }
@@ -662,7 +662,7 @@ update20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: string | number 
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-update20f5eac304c12f847f576957c5c9cf0c.put = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update20f5eac304c12f847f576957c5c9cf0c.put = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'put',
 })
@@ -672,7 +672,7 @@ update20f5eac304c12f847f576957c5c9cf0c.put = (args: { feedback: string | number 
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-update20f5eac304c12f847f576957c5c9cf0c.patch = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update20f5eac304c12f847f576957c5c9cf0c.patch = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'patch',
 })
@@ -682,7 +682,7 @@ update20f5eac304c12f847f576957c5c9cf0c.patch = (args: { feedback: string | numbe
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-const update20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const update20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update20f5eac304c12f847f576957c5c9cf0c.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -697,7 +697,7 @@ const update20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: string | n
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-update20f5eac304c12f847f576957c5c9cf0cForm.put = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update20f5eac304c12f847f576957c5c9cf0cForm.put = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update20f5eac304c12f847f576957c5c9cf0c.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -712,7 +712,7 @@ update20f5eac304c12f847f576957c5c9cf0cForm.put = (args: { feedback: string | num
 * @see app/Http/Controllers/FeedbackController.php:69
 * @route '/feedback/{feedback}'
 */
-update20f5eac304c12f847f576957c5c9cf0cForm.patch = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update20f5eac304c12f847f576957c5c9cf0cForm.patch = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update20f5eac304c12f847f576957c5c9cf0c.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -734,7 +734,7 @@ export const update = {
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/api/feedback/{feedback}'
 */
-const destroyb490fb02e884b465b2760e866ecad310 = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroyb490fb02e884b465b2760e866ecad310 = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroyb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'delete',
 })
@@ -749,7 +749,7 @@ destroyb490fb02e884b465b2760e866ecad310.definition = {
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/api/feedback/{feedback}'
 */
-destroyb490fb02e884b465b2760e866ecad310.url = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroyb490fb02e884b465b2760e866ecad310.url = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { feedback: args }
     }
@@ -782,7 +782,7 @@ destroyb490fb02e884b465b2760e866ecad310.url = (args: { feedback: string | number
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/api/feedback/{feedback}'
 */
-destroyb490fb02e884b465b2760e866ecad310.delete = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroyb490fb02e884b465b2760e866ecad310.delete = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroyb490fb02e884b465b2760e866ecad310.url(args, options),
     method: 'delete',
 })
@@ -792,7 +792,7 @@ destroyb490fb02e884b465b2760e866ecad310.delete = (args: { feedback: string | num
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/api/feedback/{feedback}'
 */
-const destroyb490fb02e884b465b2760e866ecad310Form = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroyb490fb02e884b465b2760e866ecad310Form = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroyb490fb02e884b465b2760e866ecad310.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -807,7 +807,7 @@ const destroyb490fb02e884b465b2760e866ecad310Form = (args: { feedback: string | 
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/api/feedback/{feedback}'
 */
-destroyb490fb02e884b465b2760e866ecad310Form.delete = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroyb490fb02e884b465b2760e866ecad310Form.delete = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroyb490fb02e884b465b2760e866ecad310.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -823,7 +823,7 @@ destroyb490fb02e884b465b2760e866ecad310.form = destroyb490fb02e884b465b2760e866e
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/feedback/{feedback}'
 */
-const destroy20f5eac304c12f847f576957c5c9cf0c = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroy20f5eac304c12f847f576957c5c9cf0c = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'delete',
 })
@@ -838,7 +838,7 @@ destroy20f5eac304c12f847f576957c5c9cf0c.definition = {
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/feedback/{feedback}'
 */
-destroy20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { feedback: args }
     }
@@ -871,7 +871,7 @@ destroy20f5eac304c12f847f576957c5c9cf0c.url = (args: { feedback: string | number
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/feedback/{feedback}'
 */
-destroy20f5eac304c12f847f576957c5c9cf0c.delete = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy20f5eac304c12f847f576957c5c9cf0c.delete = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy20f5eac304c12f847f576957c5c9cf0c.url(args, options),
     method: 'delete',
 })
@@ -881,7 +881,7 @@ destroy20f5eac304c12f847f576957c5c9cf0c.delete = (args: { feedback: string | num
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/feedback/{feedback}'
 */
-const destroy20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroy20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy20f5eac304c12f847f576957c5c9cf0c.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -896,7 +896,7 @@ const destroy20f5eac304c12f847f576957c5c9cf0cForm = (args: { feedback: string | 
 * @see app/Http/Controllers/FeedbackController.php:88
 * @route '/feedback/{feedback}'
 */
-destroy20f5eac304c12f847f576957c5c9cf0cForm.delete = (args: { feedback: string | number | { id: string | number } } | [feedback: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroy20f5eac304c12f847f576957c5c9cf0cForm.delete = (args: { feedback: number | { id: number } } | [feedback: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy20f5eac304c12f847f576957c5c9cf0c.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',

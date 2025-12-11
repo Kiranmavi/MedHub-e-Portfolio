@@ -8,24 +8,35 @@ import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
-import { Form, Head } from '@inertiajs/vue3';
+import { Form, Head, Link } from '@inertiajs/vue3';
+
+
+
+ const roles = [
+    { id: 1, name: 'Student' },
+    { id: 2, name: 'Admin' },
+    { id: 3, name: 'Supervisor' },
+ ]
 </script>
 
 <template>
-    <AuthBase
-        title="Create an account"
-        description="Enter your details below to create your account"
-    >
-        <Head title="Register" />
-
-        <Form
+    <Head title="Register" />
+        <div class="flex items-center justify-center w-full min-h-screen bg-[#E5E5E5] px-0 md:px-0 lg:px-10">
+            <div class="w-full text-black md:w-[80%] lg:w-[60%] xl:w-[50%] bg-white rounded-0 md:rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-10">
+                <div class="flex flex-col items-center justify-center mb-10">
+                    <h1 class="text-2xl font-bold pb-2 text-[var(--primary-color)]">Create an account</h1>
+                    <p class="text-sm text-black">
+                        Enter your details below to create your account
+                    </p>
+                </div>
+                <Form
             v-bind="store.form()"
             :reset-on-success="['password', 'password_confirmation']"
             v-slot="{ errors, processing }"
-            class="flex flex-col gap-6"
+            class="flex flex-col gap-6 w-full"
         >
-            <div class="grid gap-6">
-                <div class="grid gap-2">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div class="grid gap-4">
                     <Label for="first_name">First Name</Label>
                     <Input
                         id="first_name"
@@ -36,6 +47,7 @@ import { Form, Head } from '@inertiajs/vue3';
                         autocomplete="given-name"
                         name="first_name"
                         placeholder="First name"
+                        class="border-none" 
                     />
                     <InputError :message="errors.first_name" />
                 </div>
@@ -50,6 +62,7 @@ import { Form, Head } from '@inertiajs/vue3';
                         autocomplete="family-name"
                         name="last_name"
                         placeholder="Last name"
+                        class="border-none"
                     />
                     <InputError :message="errors.last_name" />
                 </div>
@@ -64,6 +77,7 @@ import { Form, Head } from '@inertiajs/vue3';
                         autocomplete="email"
                         name="email"
                         placeholder="email@example.com"
+                        class="border-none"
                     />
                     <InputError :message="errors.email" />
                 </div>
@@ -75,12 +89,10 @@ import { Form, Head } from '@inertiajs/vue3';
                         name="role"
                         required
                         :tabindex="4"
-                        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
+                        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 border-none text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
                     >
                         <option value="">Select a role</option>
-                        <option value="student">Student</option>
-                        <option value="admin">Admin</option>
-                        <option value="supervisor">Supervisor</option>
+                        <option v-for="role in roles" :key="role.id" :value="role.id">{{ role.name }}</option>
                     </select>
                     <InputError :message="errors.role" />
                 </div>
@@ -95,6 +107,7 @@ import { Form, Head } from '@inertiajs/vue3';
                         autocomplete="new-password"
                         name="password"
                         placeholder="Password"
+                        class="border-none"
                     />
                     <InputError :message="errors.password" />
                 </div>
@@ -109,13 +122,14 @@ import { Form, Head } from '@inertiajs/vue3';
                         autocomplete="new-password"
                         name="password_confirmation"
                         placeholder="Confirm password"
+                        class="border-none"
                     />
                     <InputError :message="errors.password_confirmation" />
                 </div>
 
                 <Button
                     type="submit"
-                    class="mt-2 w-full"
+                    class="mt-2 w-full md:w-[50%] md:col-span-2 mx-auto bg-[var(--primary-color)] text-white cursor-pointer hover:bg-[var(--primary-color)]/80"
                     tabindex="7"
                     :disabled="processing"
                     data-test="register-user-button"
@@ -124,16 +138,11 @@ import { Form, Head } from '@inertiajs/vue3';
                     Create account
                 </Button>
             </div>
-
-            <div class="text-center text-sm text-muted-foreground">
-                Already have an account?
-                <TextLink
-                    :href="login()"
-                    class="underline underline-offset-4"
-                    :tabindex="6"
-                    >Log in</TextLink
-                >
-            </div>
         </Form>
-    </AuthBase>
+            <div class="text-center flex flex-row items-center justify-center gap-2 p-2 text-sm text-black">
+                <div>Already have an account?</div>
+                <Link :href="login()" class="text-blue-500 cursor-pointer">Log In</Link>
+            </div>
+            </div>
+        </div>
 </template>

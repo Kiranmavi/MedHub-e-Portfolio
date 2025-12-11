@@ -141,7 +141,7 @@ store.form = storeForm
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-export const show = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -156,7 +156,7 @@ show.definition = {
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-show.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -189,7 +189,7 @@ show.url = (args: { absence: string | number | { id: string | number } } | [abse
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-show.get = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -199,7 +199,7 @@ show.get = (args: { absence: string | number | { id: string | number } } | [abse
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-show.head = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -209,7 +209,7 @@ show.head = (args: { absence: string | number | { id: string | number } } | [abs
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-const showForm = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const showForm = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, options),
     method: 'get',
 })
@@ -219,7 +219,7 @@ const showForm = (args: { absence: string | number | { id: string | number } } |
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showForm.get = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showForm.get = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, options),
     method: 'get',
 })
@@ -229,7 +229,7 @@ showForm.get = (args: { absence: string | number | { id: string | number } } | [
 * @see app/Http/Controllers/AbsenceController.php:50
 * @route '/absence/{absence}'
 */
-showForm.head = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showForm.head = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -246,7 +246,7 @@ show.form = showForm
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-export const update = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -261,7 +261,7 @@ update.definition = {
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-update.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -294,7 +294,7 @@ update.url = (args: { absence: string | number | { id: string | number } } | [ab
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-update.put = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -304,7 +304,7 @@ update.put = (args: { absence: string | number | { id: string | number } } | [ab
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-update.patch = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -314,7 +314,7 @@ update.patch = (args: { absence: string | number | { id: string | number } } | [
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-const updateForm = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const updateForm = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -329,7 +329,7 @@ const updateForm = (args: { absence: string | number | { id: string | number } }
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateForm.put = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateForm.put = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -344,7 +344,7 @@ updateForm.put = (args: { absence: string | number | { id: string | number } } |
 * @see app/Http/Controllers/AbsenceController.php:77
 * @route '/absence/{absence}'
 */
-updateForm.patch = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateForm.patch = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -361,7 +361,7 @@ update.form = updateForm
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-export const destroy = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -376,7 +376,7 @@ destroy.definition = {
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-destroy.url = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { absence: args }
     }
@@ -409,7 +409,7 @@ destroy.url = (args: { absence: string | number | { id: string | number } } | [a
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-destroy.delete = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -419,7 +419,7 @@ destroy.delete = (args: { absence: string | number | { id: string | number } } |
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-const destroyForm = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroyForm = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -434,7 +434,7 @@ const destroyForm = (args: { absence: string | number | { id: string | number } 
 * @see app/Http/Controllers/AbsenceController.php:96
 * @route '/absence/{absence}'
 */
-destroyForm.delete = (args: { absence: string | number | { id: string | number } } | [absence: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroyForm.delete = (args: { absence: number | { id: number } } | [absence: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',

@@ -286,7 +286,7 @@ export const store = {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-const show555b53a91b35a83faac341faf2299f0b = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const show555b53a91b35a83faac341faf2299f0b = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'get',
 })
@@ -301,7 +301,7 @@ show555b53a91b35a83faac341faf2299f0b.definition = {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-show555b53a91b35a83faac341faf2299f0b.url = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show555b53a91b35a83faac341faf2299f0b.url = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { student: args }
     }
@@ -334,7 +334,7 @@ show555b53a91b35a83faac341faf2299f0b.url = (args: { student: string | number | {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-show555b53a91b35a83faac341faf2299f0b.get = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show555b53a91b35a83faac341faf2299f0b.get = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'get',
 })
@@ -344,7 +344,7 @@ show555b53a91b35a83faac341faf2299f0b.get = (args: { student: string | number | {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-show555b53a91b35a83faac341faf2299f0b.head = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show555b53a91b35a83faac341faf2299f0b.head = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'head',
 })
@@ -354,7 +354,7 @@ show555b53a91b35a83faac341faf2299f0b.head = (args: { student: string | number | 
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-const show555b53a91b35a83faac341faf2299f0bForm = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const show555b53a91b35a83faac341faf2299f0bForm = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'get',
 })
@@ -364,7 +364,7 @@ const show555b53a91b35a83faac341faf2299f0bForm = (args: { student: string | numb
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-show555b53a91b35a83faac341faf2299f0bForm.get = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show555b53a91b35a83faac341faf2299f0bForm.get = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'get',
 })
@@ -374,7 +374,7 @@ show555b53a91b35a83faac341faf2299f0bForm.get = (args: { student: string | number
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/api/students/{student}'
 */
-show555b53a91b35a83faac341faf2299f0bForm.head = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show555b53a91b35a83faac341faf2299f0bForm.head = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show555b53a91b35a83faac341faf2299f0b.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -390,7 +390,7 @@ show555b53a91b35a83faac341faf2299f0b.form = show555b53a91b35a83faac341faf2299f0b
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-const show21b324e73beef677150d0a816261f607 = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const show21b324e73beef677150d0a816261f607 = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show21b324e73beef677150d0a816261f607.url(args, options),
     method: 'get',
 })
@@ -405,7 +405,7 @@ show21b324e73beef677150d0a816261f607.definition = {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-show21b324e73beef677150d0a816261f607.url = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show21b324e73beef677150d0a816261f607.url = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { student: args }
     }
@@ -438,7 +438,7 @@ show21b324e73beef677150d0a816261f607.url = (args: { student: string | number | {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-show21b324e73beef677150d0a816261f607.get = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show21b324e73beef677150d0a816261f607.get = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show21b324e73beef677150d0a816261f607.url(args, options),
     method: 'get',
 })
@@ -448,7 +448,7 @@ show21b324e73beef677150d0a816261f607.get = (args: { student: string | number | {
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-show21b324e73beef677150d0a816261f607.head = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show21b324e73beef677150d0a816261f607.head = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show21b324e73beef677150d0a816261f607.url(args, options),
     method: 'head',
 })
@@ -458,7 +458,7 @@ show21b324e73beef677150d0a816261f607.head = (args: { student: string | number | 
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-const show21b324e73beef677150d0a816261f607Form = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const show21b324e73beef677150d0a816261f607Form = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show21b324e73beef677150d0a816261f607.url(args, options),
     method: 'get',
 })
@@ -468,7 +468,7 @@ const show21b324e73beef677150d0a816261f607Form = (args: { student: string | numb
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-show21b324e73beef677150d0a816261f607Form.get = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show21b324e73beef677150d0a816261f607Form.get = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show21b324e73beef677150d0a816261f607.url(args, options),
     method: 'get',
 })
@@ -478,7 +478,7 @@ show21b324e73beef677150d0a816261f607Form.get = (args: { student: string | number
 * @see app/Http/Controllers/StudentController.php:44
 * @route '/student/{student}'
 */
-show21b324e73beef677150d0a816261f607Form.head = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+show21b324e73beef677150d0a816261f607Form.head = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show21b324e73beef677150d0a816261f607.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -500,7 +500,7 @@ export const show = {
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-const update555b53a91b35a83faac341faf2299f0b = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const update555b53a91b35a83faac341faf2299f0b = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'put',
 })
@@ -515,7 +515,7 @@ update555b53a91b35a83faac341faf2299f0b.definition = {
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-update555b53a91b35a83faac341faf2299f0b.url = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update555b53a91b35a83faac341faf2299f0b.url = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { student: args }
     }
@@ -548,7 +548,7 @@ update555b53a91b35a83faac341faf2299f0b.url = (args: { student: string | number |
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-update555b53a91b35a83faac341faf2299f0b.put = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update555b53a91b35a83faac341faf2299f0b.put = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'put',
 })
@@ -558,7 +558,7 @@ update555b53a91b35a83faac341faf2299f0b.put = (args: { student: string | number |
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-update555b53a91b35a83faac341faf2299f0b.patch = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update555b53a91b35a83faac341faf2299f0b.patch = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'patch',
 })
@@ -568,7 +568,7 @@ update555b53a91b35a83faac341faf2299f0b.patch = (args: { student: string | number
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-const update555b53a91b35a83faac341faf2299f0bForm = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const update555b53a91b35a83faac341faf2299f0bForm = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update555b53a91b35a83faac341faf2299f0b.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -583,7 +583,7 @@ const update555b53a91b35a83faac341faf2299f0bForm = (args: { student: string | nu
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-update555b53a91b35a83faac341faf2299f0bForm.put = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update555b53a91b35a83faac341faf2299f0bForm.put = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update555b53a91b35a83faac341faf2299f0b.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -598,7 +598,7 @@ update555b53a91b35a83faac341faf2299f0bForm.put = (args: { student: string | numb
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/api/students/{student}'
 */
-update555b53a91b35a83faac341faf2299f0bForm.patch = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update555b53a91b35a83faac341faf2299f0bForm.patch = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update555b53a91b35a83faac341faf2299f0b.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -614,7 +614,7 @@ update555b53a91b35a83faac341faf2299f0b.form = update555b53a91b35a83faac341faf229
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-const update21b324e73beef677150d0a816261f607 = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const update21b324e73beef677150d0a816261f607 = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update21b324e73beef677150d0a816261f607.url(args, options),
     method: 'put',
 })
@@ -629,7 +629,7 @@ update21b324e73beef677150d0a816261f607.definition = {
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-update21b324e73beef677150d0a816261f607.url = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update21b324e73beef677150d0a816261f607.url = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { student: args }
     }
@@ -662,7 +662,7 @@ update21b324e73beef677150d0a816261f607.url = (args: { student: string | number |
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-update21b324e73beef677150d0a816261f607.put = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update21b324e73beef677150d0a816261f607.put = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update21b324e73beef677150d0a816261f607.url(args, options),
     method: 'put',
 })
@@ -672,7 +672,7 @@ update21b324e73beef677150d0a816261f607.put = (args: { student: string | number |
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-update21b324e73beef677150d0a816261f607.patch = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update21b324e73beef677150d0a816261f607.patch = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update21b324e73beef677150d0a816261f607.url(args, options),
     method: 'patch',
 })
@@ -682,7 +682,7 @@ update21b324e73beef677150d0a816261f607.patch = (args: { student: string | number
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-const update21b324e73beef677150d0a816261f607Form = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const update21b324e73beef677150d0a816261f607Form = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update21b324e73beef677150d0a816261f607.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -697,7 +697,7 @@ const update21b324e73beef677150d0a816261f607Form = (args: { student: string | nu
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-update21b324e73beef677150d0a816261f607Form.put = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update21b324e73beef677150d0a816261f607Form.put = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update21b324e73beef677150d0a816261f607.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -712,7 +712,7 @@ update21b324e73beef677150d0a816261f607Form.put = (args: { student: string | numb
 * @see app/Http/Controllers/StudentController.php:60
 * @route '/student/{student}'
 */
-update21b324e73beef677150d0a816261f607Form.patch = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update21b324e73beef677150d0a816261f607Form.patch = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update21b324e73beef677150d0a816261f607.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -734,7 +734,7 @@ export const update = {
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/api/students/{student}'
 */
-const destroy555b53a91b35a83faac341faf2299f0b = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroy555b53a91b35a83faac341faf2299f0b = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'delete',
 })
@@ -749,7 +749,7 @@ destroy555b53a91b35a83faac341faf2299f0b.definition = {
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/api/students/{student}'
 */
-destroy555b53a91b35a83faac341faf2299f0b.url = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy555b53a91b35a83faac341faf2299f0b.url = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { student: args }
     }
@@ -782,7 +782,7 @@ destroy555b53a91b35a83faac341faf2299f0b.url = (args: { student: string | number 
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/api/students/{student}'
 */
-destroy555b53a91b35a83faac341faf2299f0b.delete = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy555b53a91b35a83faac341faf2299f0b.delete = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy555b53a91b35a83faac341faf2299f0b.url(args, options),
     method: 'delete',
 })
@@ -792,7 +792,7 @@ destroy555b53a91b35a83faac341faf2299f0b.delete = (args: { student: string | numb
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/api/students/{student}'
 */
-const destroy555b53a91b35a83faac341faf2299f0bForm = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroy555b53a91b35a83faac341faf2299f0bForm = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy555b53a91b35a83faac341faf2299f0b.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -807,7 +807,7 @@ const destroy555b53a91b35a83faac341faf2299f0bForm = (args: { student: string | n
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/api/students/{student}'
 */
-destroy555b53a91b35a83faac341faf2299f0bForm.delete = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroy555b53a91b35a83faac341faf2299f0bForm.delete = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy555b53a91b35a83faac341faf2299f0b.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -823,7 +823,7 @@ destroy555b53a91b35a83faac341faf2299f0b.form = destroy555b53a91b35a83faac341faf2
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/student/{student}'
 */
-const destroy21b324e73beef677150d0a816261f607 = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroy21b324e73beef677150d0a816261f607 = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy21b324e73beef677150d0a816261f607.url(args, options),
     method: 'delete',
 })
@@ -838,7 +838,7 @@ destroy21b324e73beef677150d0a816261f607.definition = {
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/student/{student}'
 */
-destroy21b324e73beef677150d0a816261f607.url = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy21b324e73beef677150d0a816261f607.url = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { student: args }
     }
@@ -871,7 +871,7 @@ destroy21b324e73beef677150d0a816261f607.url = (args: { student: string | number 
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/student/{student}'
 */
-destroy21b324e73beef677150d0a816261f607.delete = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy21b324e73beef677150d0a816261f607.delete = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy21b324e73beef677150d0a816261f607.url(args, options),
     method: 'delete',
 })
@@ -881,7 +881,7 @@ destroy21b324e73beef677150d0a816261f607.delete = (args: { student: string | numb
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/student/{student}'
 */
-const destroy21b324e73beef677150d0a816261f607Form = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroy21b324e73beef677150d0a816261f607Form = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy21b324e73beef677150d0a816261f607.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -896,7 +896,7 @@ const destroy21b324e73beef677150d0a816261f607Form = (args: { student: string | n
 * @see app/Http/Controllers/StudentController.php:74
 * @route '/student/{student}'
 */
-destroy21b324e73beef677150d0a816261f607Form.delete = (args: { student: string | number | { id: string | number } } | [student: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroy21b324e73beef677150d0a816261f607Form.delete = (args: { student: number | { id: number } } | [student: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy21b324e73beef677150d0a816261f607.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',

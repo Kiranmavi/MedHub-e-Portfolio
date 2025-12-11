@@ -90,6 +90,8 @@
 }
 
 :root {
+    /* --primary-color: #00a3f8; */
+    --primary-color:#7cd2ff;
     --background: hsl(0 0% 100%);
     --foreground: hsl(0 0% 3.9%);
     --card: hsl(0 0% 100%);
