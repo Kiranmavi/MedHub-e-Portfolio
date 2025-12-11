@@ -16,7 +16,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
-import { Edit, Trash2 } from 'lucide-vue-next';
+import { Edit, Trash2, Plus } from 'lucide-vue-next';
 import placementRoutes from '@/routes/placements';
 import { ref, computed } from 'vue';
 
@@ -63,6 +63,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const isEditDialogOpen = ref(false);
+const isCreateMode = ref(false);
 const editingPlacement = ref<Placement | null>(null);
 const formData = ref<Partial<Placement>>({});
 const selectedPlacement = ref<Placement | null>(
@@ -91,9 +92,26 @@ const formatDateForInput = (dateString: string) => {
     return date.toISOString().split('T')[0];
 };
 
+const handleCreate = () => {
+    isCreateMode.value = true;
+    editingPlacement.value = null;
+    formData.value = {
+        student_id: undefined,
+        placement_date: '',
+        placement_location: '',
+        ward_department: '',
+        status: 'attended',
+        arrival_time: '',
+        departure_time: '',
+        notes: '',
+    };
+    isEditDialogOpen.value = true;
+};
+
 const handleEdit = (placementId: number) => {
     const placement = props.placements.find(p => p.id === placementId);
     if (placement) {
+        isCreateMode.value = false;
         editingPlacement.value = placement;
         formData.value = {
             student_id: placement.student_id,
@@ -115,6 +133,7 @@ const handleRowClick = (placement: Placement) => {
 
 const handleCancel = () => {
     isEditDialogOpen.value = false;
+    isCreateMode.value = false;
     editingPlacement.value = null;
     formData.value = {};
 };
@@ -122,38 +141,7 @@ const handleCancel = () => {
 const isSubmitting = ref(false);
 
 const handleSubmit = async () => {
-    if (!editingPlacement.value) return;
-
     isSubmitting.value = true;
-
-    // Only send changed fields
-    const changedData: Partial<Placement> = {};
-    const original = editingPlacement.value;
-
-    if (formData.value.student_id !== original.student_id) {
-        changedData.student_id = formData.value.student_id;
-    }
-    if (formData.value.placement_date !== formatDateForInput(original.placement_date)) {
-        changedData.placement_date = formData.value.placement_date;
-    }
-    if (formData.value.placement_location !== original.placement_location) {
-        changedData.placement_location = formData.value.placement_location;
-    }
-    if (formData.value.ward_department !== (original.ward_department || '')) {
-        changedData.ward_department = formData.value.ward_department;
-    }
-    if (formData.value.status !== (original.status || 'attended')) {
-        changedData.status = formData.value.status;
-    }
-    if (formData.value.arrival_time !== (original.arrival_time || '')) {
-        changedData.arrival_time = formData.value.arrival_time;
-    }
-    if (formData.value.departure_time !== (original.departure_time || '')) {
-        changedData.departure_time = formData.value.departure_time;
-    }
-    if (formData.value.notes !== (original.notes || '')) {
-        changedData.notes = formData.value.notes;
-    }
 
     try {
         const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
@@ -167,28 +155,89 @@ const handleSubmit = async () => {
             headers['X-CSRF-TOKEN'] = csrfToken;
         }
 
-        const response = await fetch(
-            placementRoutes.update({ placement: editingPlacement.value.id }).url,
-            {
-                method: 'PUT',
-                headers,
-                body: JSON.stringify(changedData),
-                credentials: 'same-origin',
+        let response: Response;
+        let dataToSend: Partial<Placement>;
+
+        if (isCreateMode.value) {
+            // Create mode: send all form data
+            dataToSend = {
+                student_id: formData.value.student_id,
+                placement_date: formData.value.placement_date,
+                placement_location: formData.value.placement_location,
+                ward_department: formData.value.ward_department,
+                status: formData.value.status,
+                arrival_time: formData.value.arrival_time,
+                departure_time: formData.value.departure_time,
+                notes: formData.value.notes,
+            };
+
+            response = await fetch(
+                placementRoutes.store().url,
+                {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify(dataToSend),
+                    credentials: 'same-origin',
+                }
+            );
+        } else {
+            // Edit mode: only send changed fields
+            if (!editingPlacement.value) return;
+            
+            const changedData: Partial<Placement> = {};
+            const original = editingPlacement.value;
+
+            if (formData.value.student_id !== original.student_id) {
+                changedData.student_id = formData.value.student_id;
             }
-        );
+            if (formData.value.placement_date !== formatDateForInput(original.placement_date)) {
+                changedData.placement_date = formData.value.placement_date;
+            }
+            if (formData.value.placement_location !== original.placement_location) {
+                changedData.placement_location = formData.value.placement_location;
+            }
+            if (formData.value.ward_department !== (original.ward_department || '')) {
+                changedData.ward_department = formData.value.ward_department;
+            }
+            if (formData.value.status !== (original.status || 'attended')) {
+                changedData.status = formData.value.status;
+            }
+            if (formData.value.arrival_time !== (original.arrival_time || '')) {
+                changedData.arrival_time = formData.value.arrival_time;
+            }
+            if (formData.value.departure_time !== (original.departure_time || '')) {
+                changedData.departure_time = formData.value.departure_time;
+            }
+            if (formData.value.notes !== (original.notes || '')) {
+                changedData.notes = formData.value.notes;
+            }
+
+            dataToSend = changedData;
+
+            response = await fetch(
+                placementRoutes.update({ placement: editingPlacement.value.id }).url,
+                {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify(dataToSend),
+                    credentials: 'same-origin',
+                }
+            );
+        }
 
         if (response.ok) {
             isEditDialogOpen.value = false;
+            isCreateMode.value = false;
             editingPlacement.value = null;
             formData.value = {};
             router.reload({ only: ['placements'] });
         } else {
             const errorData = await response.json().catch(() => ({ message: 'Unknown error' }));
-            alert('Error updating placement: ' + (errorData.message || 'Unknown error'));
+            alert(`Error ${isCreateMode.value ? 'creating' : 'updating'} placement: ` + (errorData.message || 'Unknown error'));
         }
     } catch (error) {
-        console.error('Error updating placement:', error);
-        alert('Error updating placement. Please try again.');
+        console.error(`Error ${isCreateMode.value ? 'creating' : 'updating'} placement:`, error);
+        alert(`Error ${isCreateMode.value ? 'creating' : 'updating'} placement. Please try again.`);
     } finally {
         isSubmitting.value = false;
     }
@@ -244,8 +293,16 @@ const handleDelete = async (placementId: number) => {
                 <div
                     class="w-full md:w-[70%] rounded-xl border border-sidebar-border/70 dark:border-sidebar-border bg-white overflow-hidden"
                 >
-                    <div class="p-4 border-b border-gray-200">
+                    <div class="p-4 border-b border-gray-200 flex items-center justify-between">
                         <h2 class="text-lg font-semibold text-gray-800">Placement Records</h2>
+                        <Button
+                            @click="handleCreate"
+                            class="bg-[var(--primary-color)] text-white hover:bg-[var(--primary-color)]/80"
+                            size="sm"
+                        >
+                            <Plus class="h-4 w-4 mr-2" />
+                            Create
+                        </Button>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full">
@@ -361,11 +418,11 @@ const handleDelete = async (placementId: number) => {
             </div>
         </div>
 
-        <!-- Edit Placement Dialog -->
+        <!-- Create/Edit Placement Dialog -->
         <Dialog :open="isEditDialogOpen" @update:open="isEditDialogOpen = $event">
             <DialogContent class="max-w-2xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
-                    <DialogTitle>Edit Placement</DialogTitle>
+                    <DialogTitle>{{ isCreateMode ? 'Create Placement' : 'Edit Placement' }}</DialogTitle>
                 </DialogHeader>
 
                 <form @submit.prevent="handleSubmit" class="space-y-4">
@@ -423,7 +480,8 @@ const handleDelete = async (placementId: number) => {
                             class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                             required
                         >
-                            <option v-for="status in placementStatuses" :key="status.value" :value="status.value">
+                            <option class="bg-white text-gray-900"
+                            v-for="status in placementStatuses" :key="status.value" :value="status.value">
                                 {{ status.label }}
                             </option>
                         </select>
