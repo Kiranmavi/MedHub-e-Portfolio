@@ -19,6 +19,9 @@ import {
 import { Edit, Trash2, Plus } from 'lucide-vue-next';
 import placementRoutes from '@/routes/placements';
 import { ref, computed } from 'vue';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { useInitials } from '@/composables/useInitials';
+import Breadcrumbs from '@/components/Breadcrumbs.vue';
 
 interface UserData {
     id: number;
@@ -80,6 +83,8 @@ const isStudent = computed(() => props.role === 'student');
 const canCreatePlacement = computed(() => isStudent.value);
 const canEditPlacement = computed(() => isStudent.value);
 const canDeletePlacement = computed(() => isStudent.value);
+
+const { getInitials } = useInitials();
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -333,10 +338,15 @@ const handleDelete = async (placementId: number) => {
 <template>
     <Head title="Dashboard" />
 
-    <AppLayout :breadcrumbs="breadcrumbs">
+    <AppLayout>
         <div
             class="flex min-h-[80%] flex-1 bg-white flex-col gap-4 overflow-x-auto text-[var(--primary-color)] rounded-xl p-4"
-        >   
+        >
+            <!-- Breadcrumbs Row -->
+            <div class="mb-2">
+                <Breadcrumbs :breadcrumbs="breadcrumbs" />
+            </div>
+            
             <div class="flex flex-col md:flex-row gap-4 w-full">
                 <!-- Placement Records Table -->
                 <div
@@ -366,6 +376,7 @@ const handleDelete = async (placementId: number) => {
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
                                     <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
@@ -387,6 +398,16 @@ const handleDelete = async (placementId: number) => {
                                     </td>
                                     <td class="px-4 py-3 text-sm text-gray-900">
                                         {{ placement.placement_location }}
+                                    </td>
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                                        <div class="flex items-center gap-2">
+                                            <Avatar class="h-8 w-8">
+                                                <AvatarFallback class="bg-[var(--primary-color)] text-white text-xs">
+                                                    {{ getInitials(`${placement.student?.user?.first_name || ''} ${placement.student?.user?.last_name || ''}`) }}
+                                                </AvatarFallback>
+                                            </Avatar>
+                                            <span>{{ placement.student?.user?.first_name }} {{ placement.student?.user?.last_name }}</span>
+                                        </div>
                                     </td>
                                     <td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium" @click.stop>
                                         <div class="flex items-center justify-end gap-2">
@@ -412,7 +433,7 @@ const handleDelete = async (placementId: number) => {
                                     </td>
                                 </tr>
                                 <tr v-if="props.placements.length === 0">
-                                    <td colspan="4" class="px-4 py-8 text-center text-sm text-gray-500">
+                                    <td colspan="5" class="px-4 py-8 text-center text-sm text-gray-500">
                                         No placement records found.
                                     </td>
                                 </tr>
@@ -430,6 +451,13 @@ const handleDelete = async (placementId: number) => {
                     </div>
                     <div class="p-4">
                         <div v-if="selectedPlacement?.student" class="space-y-4">
+                            <div class="flex justify-center mb-4">
+                                <Avatar class="h-16 w-16">
+                                    <AvatarFallback class="bg-[var(--primary-color)] text-white text-lg">
+                                        {{ getInitials(`${selectedPlacement.student.user?.first_name || ''} ${selectedPlacement.student.user?.last_name || ''}`) }}
+                                    </AvatarFallback>
+                                </Avatar>
+                            </div>
                             <div class="space-y-3">
                                 <div>
                                     <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">First Name</p>

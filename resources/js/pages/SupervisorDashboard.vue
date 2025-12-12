@@ -98,7 +98,7 @@ const { getInitials } = useInitials();
             <div class="flex flex-col md:flex-row gap-4 w-full">
                 <!-- Placement Records Table -->
                 <div
-                    class="w-full md:w-[70%] rounded-xl border border-sidebar-border/70 dark:border-sidebar-border bg-white overflow-hidden"
+                    class="w-full md:w-[70%] rounded-xl border border-gray-200 dark:border-gray-500 bg-white overflow-hidden"
                 >
                     <div class="p-4 border-b border-gray-200 flex items-center justify-between">
                         <div class="flex items-center gap-3">
@@ -125,7 +125,7 @@ const { getInitials } = useInitials();
                                     :key="placement.id"
                                     @click="handleRowClick(placement)"
                                     :class="[
-                                        'hover:bg-gray-50 transition-colors cursor-pointer',
+                                        'hover:bg-gray-50 transition-colors ',
                                         selectedPlacement?.id === placement.id ? 'bg-blue-50' : ''
                                     ]"
                                 >
@@ -173,7 +173,7 @@ const { getInitials } = useInitials();
                 
                 <!-- Supervisor Details Card -->
                 <div
-                    class="w-full md:w-[30%] rounded-xl border border-sidebar-border/70 dark:border-sidebar-border bg-white overflow-hidden"
+                    class="w-full md:w-[30%] rounded-xl border border-gray-200 dark:border-gray-500 bg-white overflow-hidden"
                 >
                     <div class="p-4 border-b border-gray-200">
                         <h2 class="text-lg font-semibold text-gray-800">Supervisor Details</h2>

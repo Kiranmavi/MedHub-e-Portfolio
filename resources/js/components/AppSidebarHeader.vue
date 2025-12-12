@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import type { BreadcrumbItemType } from '@/types';
 import UserInfo from '@/components/UserInfo.vue';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import {
@@ -13,15 +11,6 @@ import { Button } from '@/components/ui/button';
 import { usePage } from '@inertiajs/vue3';
 import { ChevronsUpDown } from 'lucide-vue-next';
 
-withDefaults(
-    defineProps<{
-        breadcrumbs?: BreadcrumbItemType[];
-    }>(),
-    {
-        breadcrumbs: () => [],
-    },
-);
-
 const page = usePage();
 const user = page.props.auth?.user ?? { name: 'Guest', email: 'kiranmavi5502@gmail.com' };
 </script>
@@ -32,9 +21,9 @@ const user = page.props.auth?.user ?? { name: 'Guest', email: 'kiranmavi5502@gma
     >
         <div class="flex items-center gap-2">
             <SidebarTrigger class="-ml-1" />
-            <template v-if="breadcrumbs && breadcrumbs.length > 0">
-                <Breadcrumbs :breadcrumbs="breadcrumbs" />
-            </template>
+            <div class="px-3 py-1 bg-white rounded text-[var(--primary-color)] font-semibold text-sm">
+                MEDHUB
+            </div>
         </div>
         
         <div class="flex items-center">
