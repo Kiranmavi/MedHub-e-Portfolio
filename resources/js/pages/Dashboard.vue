@@ -77,11 +77,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Computed properties for role-based UI
 const isStudent = computed(() => props.role === 'student');
-const isSupervisor = computed(() => props.role === 'supervisor');
-const isAdmin = computed(() => props.role === 'admin');
-const canCreatePlacement = computed(() =>  isStudent.value);
-const canEditPlacement = computed(() => isAdmin.value || isStudent.value);
-const canDeletePlacement = computed(() => isAdmin.value || isStudent.value);
+const canCreatePlacement = computed(() => isStudent.value);
+const canEditPlacement = computed(() => isStudent.value);
+const canDeletePlacement = computed(() => isStudent.value);
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

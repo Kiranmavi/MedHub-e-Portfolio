@@ -93,21 +93,15 @@ Route::get('dashboard', function () {
             break;
             
         case 'supervisor':
-            // For supervisors, show all placements they supervise (you may need to add supervisor relationship)
+            // For supervisors, show all placements
             $data['placements'] = \App\Models\Placement::with(['student.user'])
                 ->orderBy('placement_date', 'desc')
                 ->get();
-            break;
-            
-        case 'admin':
-            // For admins, show all placements
-            $data['placements'] = \App\Models\Placement::with(['student.user'])
-                ->orderBy('placement_date', 'desc')
-                ->get();
-            break;
+            // Redirect supervisors to SupervisorDashboard
+            return Inertia::render('SupervisorDashboard', $data);
             
         default:
-            // For guests or unknown roles, show all (current behavior)
+            // For guests or unknown roles, show all
             $data['placements'] = \App\Models\Placement::with(['student.user'])
                 ->orderBy('placement_date', 'desc')
                 ->get();

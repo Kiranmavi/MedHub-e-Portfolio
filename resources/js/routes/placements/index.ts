@@ -242,6 +242,12 @@ showForm.head = (args: { placement: number | { id: number } } | [placement: numb
 show.form = showForm
 
 /**
+* @see \App\Http\Controllers\PlacementController::show
+* @see app/Http/Controllers/PlacementController.php:52
+* @route '/placements/{placement}'
+*/
+
+/**
 * @see \App\Http\Controllers\PlacementController::update
 * @see app/Http/Controllers/PlacementController.php:68
 * @route '/api/placements/{placement}'
@@ -357,6 +363,12 @@ updateForm.patch = (args: { placement: number | { id: number } } | [placement: n
 update.form = updateForm
 
 /**
+* @see \App\Http\Controllers\PlacementController::update
+* @see app/Http/Controllers/PlacementController.php:68
+* @route '/placements/{placement}'
+*/
+
+/**
 * @see \App\Http\Controllers\PlacementController::destroy
 * @see app/Http/Controllers/PlacementController.php:89
 * @route '/api/placements/{placement}'
@@ -445,6 +457,12 @@ destroyForm.delete = (args: { placement: number | { id: number } } | [placement:
 })
 
 destroy.form = destroyForm
+
+/**
+* @see \App\Http\Controllers\PlacementController::destroy
+* @see app/Http/Controllers/PlacementController.php:89
+* @route '/placements/{placement}'
+*/
 
 const placements = {
     index: Object.assign(index, index),
