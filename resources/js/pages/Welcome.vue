@@ -19,7 +19,7 @@ withDefaults(
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
     <div
-        class="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#FDFDFC]"
+        class="flex h-[100vh] flex-col items-center justify-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#FDFDFC]"
     >
     <Login :canResetPassword="false" :canRegister="true"  />
         <!-- <header

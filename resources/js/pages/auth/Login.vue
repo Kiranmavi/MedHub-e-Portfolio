@@ -16,76 +16,74 @@ defineProps<{
 </script>
 
 <template>
-    <div class="flex items-center justify-center w-full min-h-screen bg-[#E5E5E5] px-0 md:px-0 lg:px-10">
-        <Head title="Log in" />
-
-        <div class="w-full text-black md:w-[80%] lg:w-[60%] xl:w-[40%] bg-white rounded-0 md:rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-10 shadow-sm">
-            <div class="mb-6 space-y-2 text-center">
-                <h1 class="text-2xl font-semibold pb-2 text-[var(--primary-color)]">Welcome back</h1>
-                <p class="text-sm text-black">
-                    Enter your email and password to continue.
-                </p>
+    <Head title="Log in" />
+    <div class="flex w-full h-[100%] overflow-hidden bg-white">
+        <!-- Left Side - Image (Hidden on mobile/tablet) -->
+        <div class="hidden md:flex md:w-1/2 h-full items-center justify-center">
+            <div class="w-full h-[100%] flex items-center justify-center p-4">
+                <img src="/medhub-logo.png" alt="Login" class="w-full h-full rounded-2xl object-cover">
             </div>
+        </div>
 
-            <div
-                v-if="status"
-                class="mb-4 rounded-md bg-green-50 p-3 text-center text-sm font-medium text-green-700"
-            >
-                {{ status }}
-            </div>
-
-            <Form
-                v-bind="store.form()"
-                :reset-on-success="['password']"
-                v-slot="{ errors, processing }"
-                class=" gap-5 flex flex-col items-center justify-center"
-            >
-                <div class="grid gap-2 w-[80%]">
-                    <Label for="email">Email</Label>
-                    <Input
-                        id="email"
-                        type="email"
-                        name="email"
-                        required
-                        autofocus
-                        autocomplete="email"
-                        placeholder="you@example.com"
-                        class="border-none w-[100%]"
-                    />
-                    <InputError :message="errors.email" />
+        <!-- Right Side - Form (Full width on mobile/tablet) -->
+        <div class="w-full md:w-1/2 h-[100%] flex items-center justify-center p-4 md:p-8 lg:p-12 overflow-y-auto">
+            <div class="w-full max-w-md">
+                <div class="mb-6 space-y-2 text-center">
+                    <h1 class="text-2xl font-semibold pb-2 text-[var(--primary-color)]">Welcome back</h1>
+                    <p class="text-sm text-gray-600">
+                        Enter your email and password to continue.
+                    </p>
                 </div>
-
-                <div class="grid gap-2 w-[80%]">
-                    <Label for="password">Password</Label>
-                    <Input
-                        id="password"
-                        type="password"
-                        name="password"
-                        required
-                        autocomplete="current-password"
-                        placeholder="••••••••"
-                        class="border-none w-[100%]"
-                    />
-                    <InputError :message="errors.password" />
-                </div>
-
-                <Button
-                    type="submit"
-                    class="mt-2 w-[80%] cursor-pointer bg-[var(--primary-color)] text-white hover:bg-[var(--primary-color)]/80"
-                    :disabled="processing"
-                    data-test="login-button"
+                <Form
+                    v-bind="store.form()"
+                    :reset-on-success="['password']"
+                    v-slot="{ errors, processing }"
+                    class="flex flex-col gap-5"
                 >
-                    <Spinner v-if="processing" />
-                    <span v-else>Log in</span>
-                </Button>
-            </Form>
-            <div class="mt-5 text-black text-center">
-                Don&apos;t have an account?
-                <Link :href="register()" class="text-blue-500">Register</Link>
-            </div>
-            <div class="mt-2 text-black text-center">
-                Go to
-                <Link :href="dashboard().url" class="text-blue-500">Dashboard</Link>
+                    <div class="grid gap-2">
+                        <Label for="email">Email</Label>
+                        <Input
+                            id="email"
+                            type="email"
+                            name="email"
+                            required
+                            autofocus
+                            autocomplete="email"
+                            placeholder="you@example.com"
+                            class="border border-gray-200"
+                        />
+                        <InputError :message="errors.email" />
+                    </div>
+
+                    <div class="grid gap-2">
+                        <Label for="password">Password</Label>
+                        <Input
+                            id="password"
+                            type="password"
+                            name="password"
+                            required
+                            autocomplete="current-password"
+                            placeholder="••••••••"
+                            class="border border-gray-200"
+                        />
+                        <InputError :message="errors.password" />
+                    </div>
+
+                    <Button
+                        type="submit"
+                        class="mt-2 w-full cursor-pointer bg-[var(--primary-color)] text-white hover:bg-[var(--primary-color)]/80"
+                        :disabled="processing"
+                        data-test="login-button"
+                    >
+                        <Spinner v-if="processing" />
+                        <span v-else>Log in</span>
+                    </Button>
+                </Form>
+                
+                <div class="mt-5 text-black text-center text-sm">
+                    Don&apos;t have an account?
+                    <Link :href="register()" class="text-blue-500 hover:underline ml-1">Register</Link>
+                </div>
             </div>
         </div>
     </div>
