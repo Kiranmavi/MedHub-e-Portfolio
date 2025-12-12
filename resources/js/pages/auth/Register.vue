@@ -1,22 +1,20 @@
 <script setup lang="ts">
 import InputError from '@/components/InputError.vue';
-import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
-import AuthBase from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
 import { Form, Head, Link } from '@inertiajs/vue3';
 
 
 
- const roles = [
-    { id: 1, name: 'Student' },
-    { id: 2, name: 'Admin' },
-    { id: 3, name: 'Supervisor' },
- ]
+const roles = [
+    { value: 'student', label: 'Student' },
+    { value: 'admin', label: 'Admin' },
+    { value: 'supervisor', label: 'Supervisor' },
+]
 </script>
 
 <template>
@@ -89,10 +87,17 @@ import { Form, Head, Link } from '@inertiajs/vue3';
                         name="role"
                         required
                         :tabindex="4"
-                        class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 border-none text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
+                        class="flex h-9 w-full rounded-md border border-input bg-white px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                        <option value="">Select a role</option>
-                        <option v-for="role in roles" :key="role.id" :value="role.id">{{ role.name }}</option>
+                        <option value="" class="bg-white text-gray-900">Select a role</option>
+                        <option 
+                            v-for="role in roles" 
+                            :key="role.value" 
+                            :value="role.value"
+                            class="bg-white text-gray-900"
+                        >
+                            {{ role.label }}
+                        </option>
                     </select>
                     <InputError :message="errors.role" />
                 </div>

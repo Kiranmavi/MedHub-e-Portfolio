@@ -45,12 +45,75 @@ Route::prefix("portfolio")-> group(function(){
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('dashboard', function () {
-    $placements = \App\Models\Placement::with(['student.user'])
-        ->orderBy('placement_date', 'desc')
-        ->get();
-    return Inertia::render('Dashboard', [
-        'placements' => $placements,
-    ]);
+    $user = auth()->user();
+    $role = $user ? $user->role : 'guest';
+    
+    // Load user with student relationship
+    $userData = null;
+    if ($user) {
+        $userData = [
+            'id' => $user->id,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'email' => $user->email,
+            'role' => $user->role,
+        ];
+        
+        // Load student relationship if user is a student
+        $student = \App\Models\Student::where('user_id', $user->id)->first();
+        if ($student) {
+            $userData['student'] = [
+                'id' => $student->id,
+                'user_id' => $student->user_id,
+                'student_uni_id' => $student->student_uni_id,
+                'programme' => $student->programme,
+                'start_date' => $student->start_date,
+            ];
+        }
+    }
+    
+    $data = [
+        'role' => $role,
+        'user' => $userData,
+    ];
+    
+    // Role-specific data
+    switch ($role) {
+        case 'student':
+            // For students, show their own placements
+            $student = \App\Models\Student::where('user_id', $user->id)->first();
+            if ($student) {
+                $data['placements'] = \App\Models\Placement::with(['student.user'])
+                    ->where('student_id', $student->id)
+                    ->orderBy('placement_date', 'desc')
+                    ->get();
+            } else {
+                $data['placements'] = collect([]);
+            }
+            break;
+            
+        case 'supervisor':
+            // For supervisors, show all placements they supervise (you may need to add supervisor relationship)
+            $data['placements'] = \App\Models\Placement::with(['student.user'])
+                ->orderBy('placement_date', 'desc')
+                ->get();
+            break;
+            
+        case 'admin':
+            // For admins, show all placements
+            $data['placements'] = \App\Models\Placement::with(['student.user'])
+                ->orderBy('placement_date', 'desc')
+                ->get();
+            break;
+            
+        default:
+            // For guests or unknown roles, show all (current behavior)
+            $data['placements'] = \App\Models\Placement::with(['student.user'])
+                ->orderBy('placement_date', 'desc')
+                ->get();
+    }
+    
+    return Inertia::render('Dashboard', $data);
 })->name('dashboard');
 
 require __DIR__.'/settings.php';

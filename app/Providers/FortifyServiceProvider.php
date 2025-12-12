@@ -40,6 +40,9 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::createUsersUsing(CreateNewUser::class);
+        
+        // Note: Redirect after login/registration is handled by 'home' => '/dashboard' in config/fortify.php
+        // The dashboard route automatically detects the user's role from auth() and shows role-specific content
     }
 
     /**

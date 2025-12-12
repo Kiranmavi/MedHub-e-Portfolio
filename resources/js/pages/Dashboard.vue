@@ -20,6 +20,21 @@ import { Edit, Trash2, Plus } from 'lucide-vue-next';
 import placementRoutes from '@/routes/placements';
 import { ref, computed } from 'vue';
 
+interface UserData {
+    id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    role?: string;
+    student?: {
+        id: number;
+        user_id: number;
+        student_uni_id: string;
+        programme: string;
+        start_date: string;
+    };
+}
+
 interface User {
     id: number;
     first_name: string;
@@ -51,9 +66,22 @@ interface Placement {
 
 interface Props {
     placements: Placement[];
+    role?: string;
+    user?: UserData | null;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+    role: 'guest',
+    user: null,
+});
+
+// Computed properties for role-based UI
+const isStudent = computed(() => props.role === 'student');
+const isSupervisor = computed(() => props.role === 'supervisor');
+const isAdmin = computed(() => props.role === 'admin');
+const canCreatePlacement = computed(() =>  isStudent.value);
+const canEditPlacement = computed(() => isAdmin.value || isStudent.value);
+const canDeletePlacement = computed(() => isAdmin.value || isStudent.value);
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -160,8 +188,29 @@ const handleSubmit = async () => {
 
         if (isCreateMode.value) {
             // Create mode: send all form data
+            // Get student_id from logged-in user's student relationship (for students)
+            // For admins/supervisors, use the selected placement's student_id if available
+            let studentId: number | undefined;
+            
+            if (props.user?.student?.id) {
+                // User is a student, use their student_id
+                studentId = props.user.student.id;
+            } else if (selectedPlacement.value?.student_id) {
+                // User is admin/supervisor, use selected placement's student_id
+                studentId = selectedPlacement.value.student_id;
+            } else if (props.placements.length > 0 && props.placements[0]?.student_id) {
+                // Fallback: use first placement's student_id
+                studentId = props.placements[0].student_id;
+            }
+            
+            if (!studentId) {
+                alert('Error: Student ID not found. Please select a placement or ensure you are logged in as a student.');
+                isSubmitting.value = false;
+                return;
+            }
+            
             dataToSend = {
-                student_id: formData.value.student_id,
+                student_id: studentId,
                 placement_date: formData.value.placement_date,
                 placement_location: formData.value.placement_location,
                 ward_department: formData.value.ward_department,
@@ -230,7 +279,8 @@ const handleSubmit = async () => {
             isCreateMode.value = false;
             editingPlacement.value = null;
             formData.value = {};
-            router.reload({ only: ['placements'] });
+            // Reload the page to get updated placements
+            router.reload();
         } else {
             const errorData = await response.json().catch(() => ({ message: 'Unknown error' }));
             alert(`Error ${isCreateMode.value ? 'creating' : 'updating'} placement: ` + (errorData.message || 'Unknown error'));
@@ -269,7 +319,8 @@ const handleDelete = async (placementId: number) => {
         );
 
         if (response.ok) {
-            router.reload({ only: ['placements'] });
+            // Reload the page to get updated placements
+            router.reload();
         } else {
             const errorData = await response.json().catch(() => ({ message: 'Unknown error' }));
             alert('Error deleting placement: ' + (errorData.message || 'Unknown error'));
@@ -294,8 +345,14 @@ const handleDelete = async (placementId: number) => {
                     class="w-full md:w-[70%] rounded-xl border border-sidebar-border/70 dark:border-sidebar-border bg-white overflow-hidden"
                 >
                     <div class="p-4 border-b border-gray-200 flex items-center justify-between">
-                        <h2 class="text-lg font-semibold text-gray-800">Placement Records</h2>
+                        <div class="flex items-center gap-3">
+                            <h2 class="text-lg font-semibold text-gray-800">Placement Records</h2>
+                            <span v-if="props.role" class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 capitalize">
+                                {{ props.role }}
+                            </span>
+                        </div>
                         <Button
+                            v-if="canCreatePlacement"
                             @click="handleCreate"
                             class="bg-[var(--primary-color)] text-white hover:bg-[var(--primary-color)]/80"
                             size="sm"
@@ -336,6 +393,7 @@ const handleDelete = async (placementId: number) => {
                                     <td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium" @click.stop>
                                         <div class="flex items-center justify-end gap-2">
                                             <Button
+                                                v-if="canEditPlacement"
                                                 variant="ghost"
                                                 size="sm"
                                                 @click.stop="handleEdit(placement.id)"
@@ -344,6 +402,7 @@ const handleDelete = async (placementId: number) => {
                                                 <Edit class="h-4 w-4" />
                                             </Button>
                                             <Button
+                                                v-if="canDeletePlacement"
                                                 variant="ghost"
                                                 size="sm"
                                                 @click.stop="handleDelete(placement.id)"
