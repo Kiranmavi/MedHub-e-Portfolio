@@ -85,11 +85,7 @@ index.form = indexForm
 * @see app/Http/Controllers/PlacementController.php:15
 * @route '/placements'
 */
-export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: index.url(options),
-    method: 'get',
-})
-
+// Override definition for non-API route
 index.definition = {
     methods: ["get","head"],
     url: '/placements',
@@ -129,26 +125,12 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 * @see app/Http/Controllers/PlacementController.php:15
 * @route '/placements'
 */
-const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: index.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\PlacementController::index
-* @see app/Http/Controllers/PlacementController.php:15
-* @route '/placements'
-*/
+// Update form to use non-API route
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(options),
     method: 'get',
 })
 
-/**
-* @see \App\Http\Controllers\PlacementController::index
-* @see app/Http/Controllers/PlacementController.php:15
-* @route '/placements'
-*/
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
@@ -222,11 +204,7 @@ store.form = storeForm
 * @see app/Http/Controllers/PlacementController.php:31
 * @route '/placements'
 */
-export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
-    url: store.url(options),
-    method: 'post',
-})
-
+// Override definition for non-API route
 store.definition = {
     methods: ["post"],
     url: '/placements',
@@ -256,16 +234,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 * @see app/Http/Controllers/PlacementController.php:31
 * @route '/placements'
 */
-const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: store.url(options),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\PlacementController::store
-* @see app/Http/Controllers/PlacementController.php:31
-* @route '/placements'
-*/
+// Update form to use non-API route
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: store.url(options),
     method: 'post',
@@ -383,11 +352,7 @@ show.form = showForm
 * @see app/Http/Controllers/PlacementController.php:52
 * @route '/placements/{placement}'
 */
-export const show = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(args, options),
-    method: 'get',
-})
-
+// Override definition for non-API route
 show.definition = {
     methods: ["get","head"],
     url: '/placements/{placement}',
@@ -451,26 +416,12 @@ show.head = (args: { placement: number | { id: number } } | [placement: number |
 * @see app/Http/Controllers/PlacementController.php:52
 * @route '/placements/{placement}'
 */
-const showForm = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(args, options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\PlacementController::show
-* @see app/Http/Controllers/PlacementController.php:52
-* @route '/placements/{placement}'
-*/
+// Update form to use non-API route
 showForm.get = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, options),
     method: 'get',
 })
 
-/**
-* @see \App\Http\Controllers\PlacementController::show
-* @see app/Http/Controllers/PlacementController.php:52
-* @route '/placements/{placement}'
-*/
 showForm.head = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
@@ -603,11 +554,7 @@ update.form = updateForm
 * @see app/Http/Controllers/PlacementController.php:68
 * @route '/placements/{placement}'
 */
-export const update = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
-    url: update.url(args, options),
-    method: 'put',
-})
-
+// Override definition for non-API route
 update.definition = {
     methods: ["put","patch"],
     url: '/placements/{placement}',
@@ -671,21 +618,7 @@ update.patch = (args: { placement: number | { id: number } } | [placement: numbe
 * @see app/Http/Controllers/PlacementController.php:68
 * @route '/placements/{placement}'
 */
-const updateForm = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: update.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PUT',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\PlacementController::update
-* @see app/Http/Controllers/PlacementController.php:68
-* @route '/placements/{placement}'
-*/
+// Update form to use non-API route
 updateForm.put = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
@@ -696,11 +629,6 @@ updateForm.put = (args: { placement: number | { id: number } } | [placement: num
     method: 'post',
 })
 
-/**
-* @see \App\Http\Controllers\PlacementController::update
-* @see app/Http/Controllers/PlacementController.php:68
-* @route '/placements/{placement}'
-*/
 updateForm.patch = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
@@ -808,11 +736,7 @@ destroy.form = destroyForm
 * @see app/Http/Controllers/PlacementController.php:89
 * @route '/placements/{placement}'
 */
-export const destroy = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
-    url: destroy.url(args, options),
-    method: 'delete',
-})
-
+// Override definition for non-API route
 destroy.definition = {
     methods: ["delete"],
     url: '/placements/{placement}',
@@ -866,21 +790,7 @@ destroy.delete = (args: { placement: number | { id: number } } | [placement: num
 * @see app/Http/Controllers/PlacementController.php:89
 * @route '/placements/{placement}'
 */
-const destroyForm = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: destroy.url(args, {
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'DELETE',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-
-/**
-* @see \App\Http\Controllers\PlacementController::destroy
-* @see app/Http/Controllers/PlacementController.php:89
-* @route '/placements/{placement}'
-*/
+// Update form to use non-API route
 destroyForm.delete = (args: { placement: number | { id: number } } | [placement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {

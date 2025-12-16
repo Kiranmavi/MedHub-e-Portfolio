@@ -387,7 +387,7 @@ const handleDelete = async (placementId: number) => {
                         <Button
                             v-if="canCreatePlacement"
                             @click="handleCreate"
-                            class="bg-[var(--primary-color)] text-white hover:bg-[var(--primary-color)]/80"
+                            class="bg-[var(--primary-color)] cursor-pointer text-white hover:bg-[var(--primary-color)]/80"
                             size="sm"
                         >
                             <Plus class="h-4 w-4 mr-2" />
@@ -424,7 +424,7 @@ const handleDelete = async (placementId: number) => {
                                             :key="placement.id"
                                             @click="handleRowClick(placement)"
                                             :class="[
-                                                'hover:bg-gray-50 transition-colors cursor-pointer',
+                                                'hover:bg-gray-50 transition-colors',
                                                 selectedPlacement?.id === placement.id ? 'bg-blue-50' : ''
                                             ]"
                                         >
@@ -455,7 +455,7 @@ const handleDelete = async (placementId: number) => {
                                                         variant="ghost"
                                                         size="sm"
                                                         @click.stop="handleEdit(placement.id)"
-                                                        class="h-8 w-8 p-0 hover:bg-blue-50 hover:text-blue-600"
+                                                        class="h-8 w-8 p-0 hover:bg-blue-50 cursor-pointer hover:text-blue-600"
                                                     >
                                                         <Edit class="h-4 w-4" />
                                                     </Button>
@@ -464,7 +464,7 @@ const handleDelete = async (placementId: number) => {
                                                         variant="ghost"
                                                         size="sm"
                                                         @click.stop="handleDelete(placement.id)"
-                                                        class="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600"
+                                                        class="h-8 w-8 p-0 hover:bg-red-50 cursor-pointer hover:text-red-600"
                                                     >
                                                         <Trash2 class="h-4 w-4" />
                                                     </Button>
@@ -554,7 +554,7 @@ const handleDelete = async (placementId: number) => {
 
                 <form @submit.prevent="handleSubmit" class="space-y-4">
                     <!-- Student ID -->
-                    <!-- <div class="grid gap-2">
+                    <div class="grid gap-2">
                         <Label for="student_id">Student ID</Label>
                         <Input
                             id="student_id"
@@ -562,7 +562,7 @@ const handleDelete = async (placementId: number) => {
                             v-model="formData.student_id"
                             required
                         />
-                    </div> -->
+                    </div>
 
                     <!-- Placement Date -->
                     <div class="grid gap-2">
