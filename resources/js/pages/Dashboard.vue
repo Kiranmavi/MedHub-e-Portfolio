@@ -84,6 +84,31 @@ const canCreatePlacement = computed(() => isStudent.value);
 const canEditPlacement = computed(() => isStudent.value);
 const canDeletePlacement = computed(() => isStudent.value);
 
+// Computed property to determine which student data to display
+const displayedStudent = computed(() => {
+    // If a placement is selected, show that student's details
+    if (selectedPlacement.value?.student) {
+        return {
+            first_name: selectedPlacement.value.student.user?.first_name || '',
+            last_name: selectedPlacement.value.student.user?.last_name || '',
+            student_uni_id: selectedPlacement.value.student.student_uni_id || '',
+            programme: selectedPlacement.value.student.programme || '',
+            start_date: selectedPlacement.value.student.start_date || '',
+        };
+    }
+    // Otherwise, show the logged-in user's student details if available
+    if (props.user?.student) {
+        return {
+            first_name: props.user.first_name || '',
+            last_name: props.user.last_name || '',
+            student_uni_id: props.user.student.student_uni_id || '',
+            programme: props.user.student.programme || '',
+            start_date: props.user.student.start_date || '',
+        };
+    }
+    return null;
+});
+
 const { getInitials } = useInitials();
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -370,75 +395,91 @@ const handleDelete = async (placementId: number) => {
                         </Button>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-50 border-b border-gray-200">
-                                <tr>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
-                                    <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr 
-                                    v-for="(placement, index) in props.placements" 
-                                    :key="placement.id"
-                                    @click="handleRowClick(placement)"
-                                    :class="[
-                                        'hover:bg-gray-50 transition-colors cursor-pointer',
-                                        selectedPlacement?.id === placement.id ? 'bg-blue-50' : ''
-                                    ]"
-                                >
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-                                        {{ index + 1 }}
-                                    </td>
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-                                        {{ formatDate(placement.placement_date) }}
-                                    </td>
-                                    <td class="px-4 py-3 text-sm text-gray-900">
-                                        {{ placement.placement_location }}
-                                    </td>
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-                                        <div class="flex items-center gap-2">
-                                            <Avatar class="h-8 w-8">
-                                                <AvatarFallback class="bg-[var(--primary-color)] text-white text-xs">
-                                                    {{ getInitials(`${placement.student?.user?.first_name || ''} ${placement.student?.user?.last_name || ''}`) }}
-                                                </AvatarFallback>
-                                            </Avatar>
-                                            <span>{{ placement.student?.user?.first_name }} {{ placement.student?.user?.last_name }}</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium" @click.stop>
-                                        <div class="flex items-center justify-end gap-2">
-                                            <Button
-                                                v-if="canEditPlacement"
-                                                variant="ghost"
-                                                size="sm"
-                                                @click.stop="handleEdit(placement.id)"
-                                                class="h-8 w-8 p-0 hover:bg-blue-50 hover:text-blue-600"
-                                            >
-                                                <Edit class="h-4 w-4" />
-                                            </Button>
-                                            <Button
-                                                v-if="canDeletePlacement"
-                                                variant="ghost"
-                                                size="sm"
-                                                @click.stop="handleDelete(placement.id)"
-                                                class="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600"
-                                            >
-                                                <Trash2 class="h-4 w-4" />
-                                            </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr v-if="props.placements.length === 0">
-                                    <td colspan="5" class="px-4 py-8 text-center text-sm text-gray-500">
-                                        No placement records found.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="relative">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ward/Department</th>
+                                        <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="overflow-y-auto max-h-[320px]">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b border-gray-200 invisible">
+                                        <tr>
+                                            <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
+                                            <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                            <th class="px-4 py-3 flex justify-center text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
+                                            <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Ward/Department</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr 
+                                            v-for="(placement, index) in props.placements" 
+                                            :key="placement.id"
+                                            @click="handleRowClick(placement)"
+                                            :class="[
+                                                'hover:bg-gray-50 transition-colors cursor-pointer',
+                                                selectedPlacement?.id === placement.id ? 'bg-blue-50' : ''
+                                            ]"
+                                        >
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                                                {{ index + 1 }}
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                                                {{ formatDate(placement.placement_date) }}
+                                            </td>
+                                            <td class="px-4 py-3 text-sm text-gray-900">
+                                                {{ placement.placement_location }}
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                                                
+                                                    {{ placement.ward_department }}
+                                                    <!-- <Avatar class="h-8 w-8">
+                                                        <AvatarFallback class="bg-[var(--primary-color)] text-white text-xs">
+                                                            {{ getInitials(`${placement.student?.user?.first_name || ''} ${placement.student?.user?.last_name || ''}`) }}
+                                                        </AvatarFallback>
+                                                    </Avatar> -->
+                                                    <!-- <span>{{ placement.student?.user?.first_name }} {{ placement.student?.user?.last_name }}</span> -->
+                                                <!-- </div> -->
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium" @click.stop>
+                                                <div class="flex items-center justify-end gap-2">
+                                                    <Button
+                                                        v-if="canEditPlacement"
+                                                        variant="ghost"
+                                                        size="sm"
+                                                        @click.stop="handleEdit(placement.id)"
+                                                        class="h-8 w-8 p-0 hover:bg-blue-50 hover:text-blue-600"
+                                                    >
+                                                        <Edit class="h-4 w-4" />
+                                                    </Button>
+                                                    <Button
+                                                        v-if="canDeletePlacement"
+                                                        variant="ghost"
+                                                        size="sm"
+                                                        @click.stop="handleDelete(placement.id)"
+                                                        class="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600"
+                                                    >
+                                                        <Trash2 class="h-4 w-4" />
+                                                    </Button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr v-if="props.placements.length === 0">
+                                            <td colspan="5" class="px-4 py-8 text-center text-sm text-gray-500">
+                                                No placement records found.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -450,11 +491,12 @@ const handleDelete = async (placementId: number) => {
                         <h2 class="text-lg font-semibold text-gray-800">Student Details</h2>
                     </div>
                     <div class="p-4">
-                        <div v-if="selectedPlacement?.student" class="space-y-4">
+                        <!-- Show selected placement student details, or logged-in user's student details -->
+                        <div v-if="displayedStudent" class="space-y-4">
                             <div class="flex justify-center mb-4">
                                 <Avatar class="h-16 w-16">
                                     <AvatarFallback class="bg-[var(--primary-color)] text-white text-lg">
-                                        {{ getInitials(`${selectedPlacement.student.user?.first_name || ''} ${selectedPlacement.student.user?.last_name || ''}`) }}
+                                        {{ getInitials(`${displayedStudent.first_name} ${displayedStudent.last_name}`) }}
                                     </AvatarFallback>
                                 </Avatar>
                             </div>
@@ -462,31 +504,31 @@ const handleDelete = async (placementId: number) => {
                                 <div>
                                     <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">First Name</p>
                                     <p class="text-sm text-gray-900 font-medium">
-                                        {{ selectedPlacement.student.user?.first_name || 'N/A' }}
+                                        {{ displayedStudent.first_name || 'N/A' }}
                                     </p>
                                 </div>
                                 <div>
                                     <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Last Name</p>
                                     <p class="text-sm text-gray-900 font-medium">
-                                        {{ selectedPlacement.student.user?.last_name || 'N/A' }}
+                                        {{ displayedStudent.last_name || 'N/A' }}
                                     </p>
                                 </div>
                                 <div>
                                     <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">University ID</p>
                                     <p class="text-sm text-gray-900 font-medium">
-                                        {{ selectedPlacement.student.student_uni_id || 'N/A' }}
+                                        {{ displayedStudent.student_uni_id || 'N/A' }}
                                     </p>
                                 </div>
                                 <div>
                                     <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Programme</p>
                                     <p class="text-sm text-gray-900 font-medium">
-                                        {{ selectedPlacement.student.programme || 'N/A' }}
+                                        {{ displayedStudent.programme || 'N/A' }}
                                     </p>
                                 </div>
                                 <div>
                                     <p class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">Start Date</p>
                                     <p class="text-sm text-gray-900 font-medium">
-                                        {{ selectedPlacement.student.start_date ? formatDate(selectedPlacement.student.start_date) : 'N/A' }}
+                                        {{ displayedStudent.start_date ? formatDate(displayedStudent.start_date) : 'N/A' }}
                                     </p>
                                 </div>
                             </div>
@@ -512,7 +554,7 @@ const handleDelete = async (placementId: number) => {
 
                 <form @submit.prevent="handleSubmit" class="space-y-4">
                     <!-- Student ID -->
-                    <div class="grid gap-2">
+                    <!-- <div class="grid gap-2">
                         <Label for="student_id">Student ID</Label>
                         <Input
                             id="student_id"
@@ -520,7 +562,7 @@ const handleDelete = async (placementId: number) => {
                             v-model="formData.student_id"
                             required
                         />
-                    </div>
+                    </div> -->
 
                     <!-- Placement Date -->
                     <div class="grid gap-2">

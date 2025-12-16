@@ -109,65 +109,80 @@ const { getInitials } = useInitials();
                         </div>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-50 border-b border-gray-200">
-                                <tr>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr 
-                                    v-for="(placement, index) in props.placements" 
-                                    :key="placement.id"
-                                    @click="handleRowClick(placement)"
-                                    :class="[
-                                        'hover:bg-gray-50 transition-colors ',
-                                        selectedPlacement?.id === placement.id ? 'bg-blue-50' : ''
-                                    ]"
-                                >
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-                                        {{ index + 1 }}
-                                    </td>
-                                    <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
-                                        {{ formatDate(placement.placement_date) }}
-                                    </td>
-                                    <td class="px-4 py-3 text-sm text-gray-900">
-                                        {{ placement.placement_location }}
-                                    </td>
-                                    <td class="px-4 py-3 text-sm text-gray-900">
-                                        <div class="flex items-center gap-2">
-                                            <Avatar class="h-8 w-8">
-                                                <AvatarFallback class="bg-[var(--primary-color)] text-white text-xs">
-                                                    {{ getInitials(`${placement.student?.user?.first_name || ''} ${placement.student?.user?.last_name || ''}`) }}
-                                                </AvatarFallback>
-                                            </Avatar>
-                                            <span>{{ placement.student?.user?.first_name }} {{ placement.student?.user?.last_name }}</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 whitespace-nowrap">
-                                        <span class="px-2 py-1 text-xs font-medium rounded-full"
-                                            :class="{
-                                                'bg-green-100 text-green-800': placement.status === 'attended',
-                                                'bg-red-100 text-red-800': placement.status === 'not-attended',
-                                                'bg-yellow-100 text-yellow-800': placement.status === 'late',
-                                                'bg-gray-100 text-gray-800': placement.status === 'cancelled',
-                                            }"
+                        <div class="relative">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="overflow-y-auto max-h-[320px]">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b border-gray-200 invisible">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hospital Name</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr 
+                                            v-for="(placement, index) in props.placements" 
+                                            :key="placement.id"
+                                            @click="handleRowClick(placement)"
+                                            :class="[
+                                                'hover:bg-gray-50 transition-colors ',
+                                                selectedPlacement?.id === placement.id ? 'bg-blue-50' : ''
+                                            ]"
                                         >
-                                            {{ placement.status || 'N/A' }}
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr v-if="props.placements.length === 0">
-                                    <td colspan="5" class="px-4 py-8 text-center text-sm text-gray-500">
-                                        No placement records found.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                                                {{ index + 1 }}
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                                                {{ formatDate(placement.placement_date) }}
+                                            </td>
+                                            <td class="px-4 py-3 text-sm text-gray-900">
+                                                {{ placement.placement_location }}
+                                            </td>
+                                            <td class="px-4 py-3 text-sm text-gray-900">
+                                                <div class="flex items-center gap-2">
+                                                    <Avatar class="h-8 w-8">
+                                                        <AvatarFallback class="bg-[var(--primary-color)] text-white text-xs">
+                                                            {{ getInitials(`${placement.student?.user?.first_name || ''} ${placement.student?.user?.last_name || ''}`) }}
+                                                        </AvatarFallback>
+                                                    </Avatar>
+                                                    <span>{{ placement.student?.user?.first_name }} {{ placement.student?.user?.last_name }}</span>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <span class="px-2 py-1 text-xs font-medium rounded-full"
+                                                    :class="{
+                                                        'bg-green-100 text-green-800': placement.status === 'attended',
+                                                        'bg-red-100 text-red-800': placement.status === 'not-attended',
+                                                        'bg-yellow-100 text-yellow-800': placement.status === 'late',
+                                                        'bg-gray-100 text-gray-800': placement.status === 'cancelled',
+                                                    }"
+                                                >
+                                                    {{ placement.status || 'N/A' }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr v-if="props.placements.length === 0">
+                                            <td colspan="5" class="px-4 py-8 text-center text-sm text-gray-500">
+                                                No placement records found.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 

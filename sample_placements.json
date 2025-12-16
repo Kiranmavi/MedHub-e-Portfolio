@@ -1,0 +1,123 @@
+[
+  {
+    "student_id": 3,
+    "placement_date": "2025-01-15",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Emergency Department",
+    "status": "attended",
+    "arrival_time": "08:00",
+    "departure_time": "16:00",
+    "notes": "Observed triage procedures and assisted with patient assessments. Excellent learning experience in emergency medicine."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-01-22",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Cardiology Ward",
+    "status": "attended",
+    "arrival_time": "09:00",
+    "departure_time": "17:00",
+    "notes": "Participated in ward rounds and observed ECG procedures. Learned about cardiac monitoring and patient care protocols."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-01-29",
+    "placement_location": "Aberdeen Maternity Hospital",
+    "ward_department": "Obstetrics and Gynecology",
+    "status": "attended",
+    "arrival_time": "07:30",
+    "departure_time": "15:30",
+    "notes": "Observed antenatal consultations and assisted with patient documentation. Gained insights into maternal health care."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-02-05",
+    "placement_location": "Royal Aberdeen Children's Hospital",
+    "ward_department": "Pediatric Ward",
+    "status": "attended",
+    "arrival_time": "08:30",
+    "departure_time": "16:30",
+    "notes": "Worked with pediatric patients and their families. Learned about age-appropriate communication and care techniques."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-02-12",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "General Surgery",
+    "status": "late",
+    "arrival_time": "09:15",
+    "departure_time": "17:00",
+    "notes": "Arrived 15 minutes late due to traffic. Observed surgical procedures and post-operative care. Apologized to supervisor for delay."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-02-19",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Intensive Care Unit (ICU)",
+    "status": "attended",
+    "arrival_time": "08:00",
+    "departure_time": "16:00",
+    "notes": "Intensive care placement focusing on critical patient monitoring. Observed ventilator management and complex care procedures."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-02-26",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Orthopedics",
+    "status": "attended",
+    "arrival_time": "09:00",
+    "departure_time": "17:00",
+    "notes": "Observed fracture management and rehabilitation procedures. Assisted with patient mobility exercises and documentation."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-03-05",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Oncology Ward",
+    "status": "cancelled",
+    "arrival_time": null,
+    "departure_time": null,
+    "notes": "Placement cancelled due to staff shortage. Rescheduled for next week."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-03-12",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Oncology Ward",
+    "status": "attended",
+    "arrival_time": "08:00",
+    "departure_time": "16:00",
+    "notes": "Rescheduled placement. Observed chemotherapy administration and supportive care. Learned about patient communication in sensitive situations."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-03-19",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Neurology Department",
+    "status": "attended",
+    "arrival_time": "08:30",
+    "departure_time": "16:30",
+    "notes": "Observed neurological assessments and diagnostic procedures. Participated in multidisciplinary team meetings. Excellent learning opportunity."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-03-26",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Radiology Department",
+    "status": "not-attended",
+    "arrival_time": null,
+    "departure_time": null,
+    "notes": "Unable to attend due to illness. Will need to make up this placement."
+  },
+  {
+    "student_id": 3,
+    "placement_date": "2025-04-02",
+    "placement_location": "Aberdeen Royal Infirmary",
+    "ward_department": "Radiology Department",
+    "status": "attended",
+    "arrival_time": "09:00",
+    "departure_time": "17:00",
+    "notes": "Make-up placement. Observed various imaging procedures including X-rays, CT scans, and MRI. Learned about radiation safety protocols."
+  }
+]
+

@@ -21,7 +21,7 @@ withDefaults(
     <div
         class="flex h-[100vh] flex-col items-center justify-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#FDFDFC]"
     >
-    <Login :canResetPassword="false" :canRegister="true"  />
+    <Login />
         <!-- <header
             class="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl"
         >
